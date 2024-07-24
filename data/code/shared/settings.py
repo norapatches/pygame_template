@@ -6,5 +6,3 @@ class Settings:
     screen_resolution = (screen_width, screen_height)
     
     fps = 60
-    
-    camera_borders = {'left': 200, 'right': 200, 'top': 100, 'bottom': 100}
