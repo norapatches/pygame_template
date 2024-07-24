@@ -1,4 +1,3 @@
-from data.code.shared.settings import Settings
 import pygame
 
 class Camera(pygame.sprite.Group):
