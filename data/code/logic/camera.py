@@ -37,8 +37,8 @@ class Camera(pygame.sprite.Group):
         if target.rect.bottom > self.camera_rect.bottom:
             self.camera_rect.bottom = target.rect.bottom
         
-        self.offset.x = self.camera_rect.left - self.camera_borders['left']
-        self.offset.y = self.camera_rect.top - self.camera_borders['top']
+        self.offset.x = self.camera_rect.left - Camera.BORDERS['left']
+        self.offset.y = self.camera_rect.top - Camera.BORDERS['top']
     
     
     def draw_ysorted(self, target):
