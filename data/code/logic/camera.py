@@ -1,7 +1,7 @@
-from data.code.shared.settings import Settings
 import pygame
 
 class Camera(pygame.sprite.Group):
+    BORDERS = {'left': 20, 'right': 20, 'top': 10, 'bottom': 10}
     '''The camera module. It has various modes to select from and a custom draw method'''
     def __init__(self):
         super().__init__()
@@ -15,10 +15,10 @@ class Camera(pygame.sprite.Group):
         self.half_h = self.display.get_height() / 2
         
         # BOX SETUP
-        l = Settings.camera_borders['left']
-        t = Settings.camera_borders['top']
-        w = self.display.get_width() - (Settings.camera_borders['left'] + Settings.camera_borders['right'])
-        h = self.display.get_height() - (Settings.camera_borders['top'] + Settings.camera_borders['bottom'])
+        l = Camera.BORDERS['left']
+        t = Camera.BORDERS['top']
+        w = self.display.get_width() - (Camera.BORDERS['left'] + Camera.BORDERS['right'])
+        h = self.display.get_height() - (Camera.BORDERS['top'] + Camera.BORDERS['bottom'])
         self.camera_rect = pygame.Rect(l, t, w, h)
     
     def center_target_camera(self, target):
@@ -37,8 +37,8 @@ class Camera(pygame.sprite.Group):
         if target.rect.bottom > self.camera_rect.bottom:
             self.camera_rect.bottom = target.rect.bottom
         
-        self.offset.x = self.camera_rect.left - Settings.camera_borders['left']
-        self.offset.y = self.camera_rect.top - Settings.camera_borders['top']
+        self.offset.x = self.camera_rect.left - self.camera_borders['left']
+        self.offset.y = self.camera_rect.top - self.camera_borders['top']
     
     
     def draw_ysorted(self, target):
